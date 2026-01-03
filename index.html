@@ -226,16 +226,14 @@
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
                 const response = await fetch(
-                    `${_um5q}/rest/v1/rpc/get_redirect_by_id?_t=${Date.now()}`,
+                    `${_um5q}/rest/v1/rpc/get_redirect_by_id`,
                     {
                         method: "POST",
                         headers: {
                             apikey: apiKey,
                             Authorization: `Bearer ${apiKey}`,
                             Accept: "application/json",
-                            "Content-Type": "application/json",
-                            "Cache-Control": "no-cache, no-store, must-revalidate",
-                            "Pragma": "no-cache"
+                            "Content-Type": "application/json"
                         },
                         body: JSON.stringify({ redirect_id: redirectId }),
                         signal: controller.signal,
